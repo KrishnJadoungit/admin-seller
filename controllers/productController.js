@@ -3,7 +3,7 @@ const Product = require('../models/Product');
 exports.addProduct = async (req, res) => {
   try {
     const { productName, productDescription } = req.body;
-    const brands = JSON.parse(req.body.brands); // brands will come as stringified JSON array
+    const brands = JSON.parse(req.body.brands); 
 
     const formattedBrands = brands.map((brand, index) => ({
       brandName: brand.brandName,

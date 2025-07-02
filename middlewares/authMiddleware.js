@@ -2,7 +2,7 @@
 
 const jwt = require('jsonwebtoken');
 
-// ✅ Verify Admin Token
+// Verify Admin Token
 exports.verifyAdmin = (req, res, next) => {
   const token = req.headers.authorization?.split(' ')[1];
 
@@ -23,7 +23,7 @@ exports.verifyAdmin = (req, res, next) => {
   }
 };
 
-// ✅ Verify Seller Token (for Add Product etc.)
+// Verify Seller Token (for Add Product etc.)
 exports.verifySeller = (req, res, next) => {
   const token = req.headers.authorization?.split(' ')[1];
 

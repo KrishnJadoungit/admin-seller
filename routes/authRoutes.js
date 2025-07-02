@@ -11,11 +11,11 @@ const {
 
 const { verifyAdmin } = require('../middlewares/authMiddleware');
 
-// 🧑‍💼 Admin Routes
+// Admin Routes
 router.post('/admin/login', adminLogin);
 router.post('/admin/create-seller', verifyAdmin, createSeller);
 
-// 🛍️ Seller Route
+// Seller Route
 router.post('/seller/login', sellerLogin);
 
 module.exports = router;

@@ -5,7 +5,7 @@ const Seller = require('../models/Seller');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
-// 🔐 Admin Login
+// Admin Login
 exports.adminLogin = async (req, res) => {
   const { email, password } = req.body;
 
@@ -32,7 +32,7 @@ exports.adminLogin = async (req, res) => {
   }
 };
 
-// 🧑‍💼 Create Seller (Admin only)
+// Create Seller (Admin only)
 exports.createSeller = async (req, res) => {
   try {
     const { name, email, mobileNo, country, state, skills, password } = req.body;
@@ -60,7 +60,7 @@ exports.createSeller = async (req, res) => {
   }
 };
 
-// 🛍️ Seller Login
+// Seller Login
 exports.sellerLogin = async (req, res) => {
   const { email, password } = req.body;
 

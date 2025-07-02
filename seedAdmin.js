@@ -11,7 +11,7 @@ mongoose.connect(process.env.MONGO_URI)
       email: 'admin@admin.com',
       password: hashedPassword
     });
-    console.log('✅ Admin created');
+    console.log('Admin created');
     process.exit();
   })
-  .catch(err => console.error('❌ Error:', err));
+  .catch(err => console.error('error:', err));
