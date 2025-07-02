@@ -1,0 +1,8 @@
+# sensitive files
+.env
+
+# uploads (images stored by multer)
+uploads/
+
+# dependencies
+node_modules/
