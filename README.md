@@ -82,6 +82,7 @@ We use `page` and `limit` in the API:
 | Seller Login       | POST   | `/api/seller/login`                              |
 | Add Product        | POST   | `/api/seller/add-product`                        |
 | List Products      | GET    | `/api/seller/products?page=1&limit=2`            |
+| List Products      | DELETE | `/api/seller/delete-product/<productId>`         |
 
 ---
 
