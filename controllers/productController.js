@@ -1,4 +1,5 @@
 const Product = require('../models/Product');
+const mongoose = require('mongoose');
 
 exports.addProduct = async (req, res) => {
   try {
@@ -51,18 +52,22 @@ exports.getSellerProducts = async (req, res) => {
 
 exports.deleteProduct = async (req, res) => {
   try {
-    const productId = req.params.id;
+    console.log("Product ID param:", req.params.id);
+    console.log("Decoded user:", req.user);
 
-    // Check if the product belongs to the logged-in seller
-    const product = await Product.findOne({ _id: productId, sellerId: req.user._id });
+    const product = await Product.findOne({
+      _id: new mongoose.Types.ObjectId(req.params.id),
+      sellerId: new mongoose.Types.ObjectId(req.user.userId)
+    });
+
+    console.log("Product found:", product);
 
     if (!product) {
-      return res.status(404).json({ message: 'Product not found or unauthorized' });
+      return res.status(404).json({ message: 'Product not found' });
     }
 
-    await Product.deleteOne({ _id: productId });
-
-    res.status(200).json({ message: 'Product deleted successfully' });
+    await product.deleteOne();
+    res.json({ message: 'Product deleted successfully' });
   } catch (error) {
     res.status(500).json({ message: 'Server Error', error: error.message });
   }
